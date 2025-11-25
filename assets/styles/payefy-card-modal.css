@@ -45,6 +45,10 @@ table {
   border-spacing: 0 !important;
   clip-path: inset(0 round 15px) !important;
   -webkit-clip-path: inset(0 round 15px) !important;
+  /* Aspect ratio de la tarjeta: 85.6 / 53.98 (mismo que en el layout principal) */
+  aspect-ratio: 85.6 / 53.98 !important;
+  width: 100% !important;
+  min-height: 0 !important;
 }
 
 /* Eliminar sombras y bordes */
@@ -75,6 +79,8 @@ tbody {
   display: flex !important;
   flex-direction: column !important;
   gap: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* ============================================
@@ -421,12 +427,12 @@ table::after {
 /* ============================================
    NOTA IMPORTANTE
    ============================================ */
-/* 
+/*
  * Los gráficos (logo Payefy, chip, contactless, logo Visa) se insertan mediante JavaScript
  * en el código React Native. Este CSS proporciona los estilos base, pero los elementos SVG
  * deben ser insertados dinámicamente mediante JavaScript debido a las limitaciones de CSS
  * para insertar contenido complejo como SVGs múltiples en posiciones específicas.
- * 
+ *
  * Para usar este CSS externamente:
  * 1. Aloja este archivo en un servidor público (CDN, S3, etc.)
  * 2. Configura la variable de entorno EXPO_PUBLIC_PAYEFY_STYLES_URL con la URL completa
