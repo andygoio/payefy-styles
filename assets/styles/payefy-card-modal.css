@@ -27,9 +27,8 @@ body {
   width: 100% !important;
   height: 100% !important;
   display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  justify-content: flex-start !important;
+  align-items: center !important;
+  justify-content: center !important;
   box-sizing: border-box !important;
   position: relative !important;
   overflow: hidden !important;
@@ -79,16 +78,16 @@ table {
   aspect-ratio: 85.6 / 53.98 !important;
   width: 100% !important;
   max-width: 100% !important;
+  max-height: 100% !important;
   height: auto !important;
   min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
   display: block !important;
-  /* Asegurar que la tabla ocupe el espacio necesario sin dejar huecos */
+  /* Asegurar que la tabla ocupe exactamente el espacio que necesita, sin más */
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
-  align-self: stretch !important;
 }
 
 /* Eliminar sombras y bordes */
@@ -127,6 +126,8 @@ tbody {
   box-sizing: border-box !important;
   justify-content: flex-end !important;
   min-height: 100% !important;
+  /* Asegurar que el tbody ocupe exactamente el alto de la tabla */
+  position: relative !important;
 }
 
 /* ============================================
