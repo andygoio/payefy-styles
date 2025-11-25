@@ -27,9 +27,12 @@ body {
   width: 100% !important;
   height: 100% !important;
   display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 /* Asegurar que cualquier contenedor dentro del body también respete las dimensiones */
@@ -37,6 +40,12 @@ body > * {
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
+}
+
+/* Asegurar que la tabla sea el primer elemento y ocupe todo el ancho */
+body > table {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 /* ============================================
@@ -70,11 +79,16 @@ table {
   aspect-ratio: 85.6 / 53.98 !important;
   width: 100% !important;
   max-width: 100% !important;
+  height: auto !important;
   min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
   display: block !important;
+  /* Asegurar que la tabla ocupe el espacio necesario sin dejar huecos */
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  align-self: stretch !important;
 }
 
 /* Eliminar sombras y bordes */
