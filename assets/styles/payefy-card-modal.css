@@ -116,7 +116,7 @@ tbody {
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  padding-bottom: 28px !important;
+  padding-bottom: 32px !important;
   box-sizing: border-box !important;
   justify-content: flex-end !important;
   min-height: 100% !important;
@@ -294,7 +294,7 @@ tr:has([data-field="pan"]) {
 /* Asegurar que el número de tarjeta esté posicionado correctamente */
 tr:has([data-field="pan"]) {
   position: absolute !important;
-  bottom: 28px !important;
+  bottom: 32px !important;
   left: 0 !important;
   right: 80px !important;
   width: auto !important;
@@ -344,7 +344,7 @@ tr:has([data-field="name"]) th {
   padding-left: 28px !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 28px !important;
+  padding-bottom: 32px !important;
   text-indent: 0 !important;
 }
 
@@ -406,7 +406,7 @@ th:has([data-field="name"]) {
   padding-left: 28px !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 28px !important;
+  padding-bottom: 32px !important;
   text-align: left !important;
 }
 
@@ -419,7 +419,7 @@ tbody tr:last-child:has([data-field="name"]) {
 
 tbody tr:last-child:has([data-field="name"]) td,
 tbody tr:last-child:has([data-field="name"]) th {
-  padding-bottom: 28px !important;
+  padding-bottom: 32px !important;
   margin-bottom: 0 !important;
 }
 
@@ -490,7 +490,7 @@ table::after {
 /* Logo Visa (abajo derecha) - se insertará mediante JavaScript */
 #payefy-visa-logo {
   position: absolute;
-  bottom: 28px !important;
+  bottom: 32px !important;
   right: 20px !important;
   width: 56px !important;
   height: 20px !important;
