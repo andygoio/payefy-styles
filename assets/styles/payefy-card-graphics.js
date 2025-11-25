@@ -33,7 +33,7 @@
     // Chip EMV (arriba izquierda)
     const chipContainer = document.createElement("div");
     chipContainer.style.cssText =
-      "position: absolute; top: 50px; left: 28px; display: flex; flex-direction: row; align-items: center; gap: 12px;";
+      "position: absolute; top: 40px; left: 28px; display: flex; flex-direction: row; align-items: center; gap: 12px;";
 
     const chip = document.createElement("div");
     chip.style.cssText = "width: 36px; height: 24px;";
@@ -51,7 +51,7 @@
     const visaLogo = document.createElement("div");
     visaLogo.id = "payefy-visa-logo";
     visaLogo.style.cssText =
-      "position: absolute; bottom: 32px; right: 20px; width: 56px; height: 20px;";
+      "position: absolute; bottom: 50px; right: 20px; width: 56px; height: 20px;";
     visaLogo.innerHTML = `<svg width="56" height="20" viewBox="0 0 598400 193900" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M389900 0c-42500 0-80500 22000-80500 62700 0 46700 67300 49900 67300 73400 0 9900-11300 18700-30600 18700-16800-100-33200-4400-47900-12400l-8800 41100c17400 6900 36100 10400 54900 10400 0 0 100 0 100 0 46500 0 83100-23000 83100-64500 0-49300-67600-52400-67600-74200 0-7700 9200-16100 28500-16100 13600 200 27100 3200 39500 9000l8600-39700c-14600-5500-30100-8400-45700-8400-300 0-600 0-900 0zm-388900 3000l-1000 6000c11600 2200 23000 5505 34000 9800 20800 7400 22200 11800 25700 25400l38100 146700h51000l78500-187900h-50800l-50500 127700-20600-108200c-1900-12400-11600-19500-23100-19500H1000zm246800 0l-39900 187900h48500l39700-187900h-48400zm270700 0c-11700 0-17900 6300-22500 17200l-71100 170700h50800l9900-28500h61900l6000 28500h44900l-39200-187900h-40700zm6600 50800l15100 70500h-40400l25400-70500z" fill="#ffffff"/></svg>`;
 
     graphicsContainer.appendChild(payefyLogo);
