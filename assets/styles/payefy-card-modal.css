@@ -331,13 +331,20 @@ tr:has([data-field="name"]) th {
 tr:has([data-field="expiration"]) td,
 tr:has([data-field="expiration"]) th,
 tr:has([data-field="code"]) td,
-tr:has([data-field="code"]) th,
+tr:has([data-field="code"]) th {
+  padding-left: 28px !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  text-indent: 0 !important;
+}
+
 tr:has([data-field="name"]) td,
 tr:has([data-field="name"]) th {
   padding-left: 28px !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 28px !important;
   text-indent: 0 !important;
 }
 
@@ -399,7 +406,7 @@ th:has([data-field="name"]) {
   padding-left: 28px !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 28px !important;
   text-align: left !important;
 }
 
@@ -412,16 +419,29 @@ tbody tr:last-child:has([data-field="name"]) {
 
 tbody tr:last-child:has([data-field="name"]) td,
 tbody tr:last-child:has([data-field="name"]) th {
-  padding-bottom: 0 !important;
+  padding-bottom: 28px !important;
   margin-bottom: 0 !important;
 }
 
 /* Asegurar que las filas inferiores tengan un poco más de espacio del borde */
 tr:has([data-field="expiration"]),
-tr:has([data-field="code"]),
+tr:has([data-field="code"]) {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 tr:has([data-field="name"]) {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+}
+
+/* Agregar padding-bottom a las celdas de expiration y code también */
+tr:has([data-field="expiration"]) td,
+tr:has([data-field="expiration"]) th,
+tr:has([data-field="code"]) td,
+tr:has([data-field="code"]) th {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Asegurar que expiration y code estén justo arriba de name */
