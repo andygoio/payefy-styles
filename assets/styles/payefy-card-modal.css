@@ -11,11 +11,32 @@ html, body {
   padding: 0 !important;
   border-radius: 15px !important;
   overflow: hidden !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
 }
 
 html {
   border-radius: 15px !important;
   overflow: hidden !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Asegurar que cualquier contenedor dentro del body también respete las dimensiones */
+body > * {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* ============================================
@@ -48,7 +69,12 @@ table {
   /* Aspect ratio de la tarjeta: 85.6 / 53.98 (mismo que en el layout principal) */
   aspect-ratio: 85.6 / 53.98 !important;
   width: 100% !important;
+  max-width: 100% !important;
   min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
 }
 
 /* Eliminar sombras y bordes */
@@ -81,6 +107,9 @@ tbody {
   gap: 0 !important;
   width: 100% !important;
   height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* ============================================
