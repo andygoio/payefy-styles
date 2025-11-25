@@ -124,6 +124,8 @@ tbody {
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
+  justify-content: space-between !important;
+  min-height: 100% !important;
 }
 
 /* ============================================
@@ -211,8 +213,8 @@ td, th {
 /* Aumentar separación entre fila de expiración/CVV y nombre */
 tr:has([data-field="expiration"]),
 tr:has([data-field="code"]) {
-  margin-bottom: 32px !important;
-  padding-bottom: 32px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   display: block !important;
 }
 
@@ -220,27 +222,31 @@ tr:has([data-field="expiration"]) td,
 tr:has([data-field="expiration"]) th,
 tr:has([data-field="code"]) td,
 tr:has([data-field="code"]) th {
-  padding-bottom: 32px !important;
-  margin-bottom: 32px !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 tr:has([data-field="name"]) {
-  margin-top: 32px !important;
-  padding-top: 32px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   display: block !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 tr:has([data-field="name"]) td,
 tr:has([data-field="name"]) th {
-  padding-top: 32px !important;
-  margin-top: 32px !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Aumentar gap entre filas consecutivas - cuando expiration/code viene antes de name */
 tr:has([data-field="expiration"]) + tr:has([data-field="name"]),
 tr:has([data-field="code"]) + tr:has([data-field="name"]) {
-  margin-top: 40px !important;
-  padding-top: 40px !important;
+  margin-top: 8px !important;
+  padding-top: 0 !important;
   display: block !important;
 }
 
@@ -248,8 +254,8 @@ tr:has([data-field="expiration"]) + tr:has([data-field="name"]) td,
 tr:has([data-field="expiration"]) + tr:has([data-field="name"]) th,
 tr:has([data-field="code"]) + tr:has([data-field="name"]) td,
 tr:has([data-field="code"]) + tr:has([data-field="name"]) th {
-  padding-top: 40px !important;
-  margin-top: 40px !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Aplicar a todas las filas que contengan expiration, code o name */
@@ -257,20 +263,20 @@ tr td:has([data-field="expiration"]),
 tr th:has([data-field="expiration"]),
 tr td:has([data-field="code"]),
 tr th:has([data-field="code"]) {
-  padding-bottom: 32px !important;
-  margin-bottom: 32px !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 tr td:has([data-field="name"]),
 tr th:has([data-field="name"]) {
-  padding-top: 32px !important;
-  margin-top: 32px !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Aplicar gap específico entre filas de expiration/code y name */
 tr:has([data-field="expiration"]) ~ tr:has([data-field="name"]),
 tr:has([data-field="code"]) ~ tr:has([data-field="name"]) {
-  margin-top: 40px !important;
+  margin-top: 8px !important;
 }
 
 /* ============================================
@@ -292,7 +298,7 @@ tr:has([data-field="pan"]) {
 /* Asegurar que el número de tarjeta esté posicionado correctamente */
 tr:has([data-field="pan"]) {
   position: absolute !important;
-  bottom: 60px !important;
+  bottom: 20px !important;
   left: 0 !important;
   right: 80px !important;
   width: auto !important;
@@ -397,8 +403,20 @@ th:has([data-field="name"]) {
   padding-left: 28px !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 20px !important;
   text-align: left !important;
+}
+
+/* Asegurar que la última fila (name) esté en la parte inferior */
+tbody tr:last-child:has([data-field="name"]) {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+tbody tr:last-child:has([data-field="name"]) td,
+tbody tr:last-child:has([data-field="name"]) th {
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
 }
 
 /* ============================================
