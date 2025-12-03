@@ -14,6 +14,13 @@ body > div:first-child,
   width: 100% !important;
   height: 100% !important;
   min-height: 200px !important;
+  box-sizing: border-box !important;
+}
+
+/* Asegurar que el contenedor tenga el padding correcto */
+table {
+  box-sizing: border-box !important;
+  padding: 20px !important;
 }
 
 /* Asegurar que el body y html sean transparentes */
@@ -54,6 +61,15 @@ th {
   color: #ffffff !important;
   border: none !important;
   vertical-align: top !important;
+  text-align: left !important;
+}
+
+/* Asegurar que las celdas no tengan padding izquierdo por defecto */
+td:has([data-field]),
+th:has([data-field]) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
 }
 
 /* Logo Payefy - posición correcta */
@@ -110,6 +126,17 @@ th {
   stroke: none !important;
 }
 
+/* Asegurar que el SVG del contactless sea verde */
+#contactless-icon svg,
+#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg {
+  fill: #AEFF9A !important;
+}
+
+#contactless-icon svg *,
+#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg * {
+  fill: #AEFF9A !important;
+}
+
 /* Logo Visa - posición correcta */
 #payefy-visa-logo,
 #payefy-card-graphics > div:last-child {
@@ -122,31 +149,51 @@ th {
   pointer-events: none !important;
 }
 
-/* Número de tarjeta (PAN) - posición correcta */
+/* Número de tarjeta (PAN) - posición correcta, alineado a la izquierda con el chip */
 [data-field="pan"],
 tr:has([data-field="pan"]) {
   position: absolute !important;
   bottom: 20px !important;
   left: 28px !important;
+  right: 80px !important;
   color: #ffffff !important;
   font-size: 18px !important;
   letter-spacing: 3px !important;
   font-weight: 600 !important;
   z-index: 5 !important;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  width: auto !important;
 }
 
 [data-field="pan"] {
   display: inline-block !important;
   white-space: nowrap !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
-/* Expiration y CVV - posición correcta */
+/* Celdas que contienen PAN - asegurar alineación a la izquierda */
+tr:has([data-field="pan"]) td,
+tr:has([data-field="pan"]) th {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+/* Expiration y CVV - posición correcta, alineado a la izquierda con el chip */
 [data-field="expiration"],
 [data-field="code"] {
   color: #ffffff !important;
   font-size: 14px !important;
   font-weight: 500 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 tr:has([data-field="expiration"]),
@@ -154,21 +201,52 @@ tr:has([data-field="code"]) {
   position: absolute !important;
   bottom: 45px !important;
   left: 28px !important;
+  right: auto !important;
   z-index: 5 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
-/* Nombre del titular - posición correcta */
+/* Celdas que contienen expiration o code */
+tr:has([data-field="expiration"]) td,
+tr:has([data-field="expiration"]) th,
+tr:has([data-field="code"]) td,
+tr:has([data-field="code"]) th {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+/* Nombre del titular - posición correcta, alineado a la izquierda con el chip */
 [data-field="name"] {
   color: #ffffff !important;
   font-size: 14px !important;
   font-weight: 500 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 tr:has([data-field="name"]) {
   position: absolute !important;
   bottom: 65px !important;
   left: 28px !important;
+  right: auto !important;
   z-index: 5 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Celdas que contienen name */
+tr:has([data-field="name"]) td,
+tr:has([data-field="name"]) th {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
+  margin-left: 0 !important;
 }
 
 /* Contenedor de gráficos - asegurar que esté por encima */
@@ -189,6 +267,32 @@ tr:has([data-field="name"]) {
   opacity: 1 !important;
   display: block !important;
   color: #ffffff !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Resetear cualquier padding o margin en elementos padre de data-field */
+td:has([data-field]),
+th:has([data-field]),
+tr:has([data-field]) {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+/* Asegurar que el contenido de las celdas esté alineado a la izquierda */
+td[data-field],
+th[data-field],
+td:has([data-field]),
+th:has([data-field]) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* Eliminar cualquier sombra o efecto no deseado */
@@ -205,5 +309,30 @@ td,
 th {
   border: none !important;
   outline: none !important;
+}
+
+/* Resetear todos los estilos de padding y margin que puedan interferir */
+tr td,
+tr th {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+/* Asegurar que los elementos dentro de las celdas también estén alineados */
+td *,
+th * {
+  text-align: left !important;
+}
+
+/* Específicamente para elementos con data-field dentro de celdas */
+td [data-field],
+th [data-field] {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+  display: inline-block !important;
 }
 
