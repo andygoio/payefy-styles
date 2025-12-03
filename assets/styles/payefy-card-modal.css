@@ -96,6 +96,20 @@ th:has([data-field]) {
   gap: 12px !important;
   z-index: 10 !important;
   pointer-events: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Asegurar que el contenedor tenga ambos hijos visibles */
+#chip-contactless-container > div:nth-child(2),
+#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 28px !important;
+  height: 28px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
 }
 
 /* Chip EMV */
@@ -112,12 +126,19 @@ th:has([data-field]) {
   width: 28px !important;
   height: 28px !important;
   flex-shrink: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 11 !important;
 }
 
 #contactless-icon svg,
 #payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg {
   width: 100% !important;
   height: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 #contactless-icon svg path,
@@ -137,6 +158,16 @@ th:has([data-field]) {
   fill: #AEFF9A !important;
 }
 
+/* Forzar visibilidad del contactless */
+#chip-contactless-container > div:nth-child(2),
+#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
 /* Logo Visa - posición correcta */
 #payefy-visa-logo,
 #payefy-card-graphics > div:last-child {
@@ -153,7 +184,7 @@ th:has([data-field]) {
 [data-field="pan"],
 tr:has([data-field="pan"]) {
   position: absolute !important;
-  bottom: 20px !important;
+  bottom: 50px !important;
   left: 28px !important;
   right: 80px !important;
   color: #ffffff !important;
@@ -199,7 +230,7 @@ tr:has([data-field="pan"]) th {
 tr:has([data-field="expiration"]),
 tr:has([data-field="code"]) {
   position: absolute !important;
-  bottom: 45px !important;
+  bottom: 75px !important;
   left: 28px !important;
   right: auto !important;
   z-index: 5 !important;
@@ -231,7 +262,7 @@ tr:has([data-field="code"]) th {
 
 tr:has([data-field="name"]) {
   position: absolute !important;
-  bottom: 65px !important;
+  bottom: 95px !important;
   left: 28px !important;
   right: auto !important;
   z-index: 5 !important;
@@ -261,7 +292,7 @@ tr:has([data-field="name"]) th {
   overflow: visible !important;
 }
 
-/* Asegurar que todos los elementos de texto sean visibles */
+/* Asegurar que todos los elementos de texto sean visibles y blancos */
 [data-field] {
   visibility: visible !important;
   opacity: 1 !important;
@@ -272,6 +303,18 @@ tr:has([data-field="name"]) th {
   margin-left: 0 !important;
   padding-right: 0 !important;
   margin-right: 0 !important;
+}
+
+/* Forzar color blanco en todos los textos de la tarjeta */
+[data-field="pan"],
+[data-field="expiration"],
+[data-field="code"],
+[data-field="name"],
+tr:has([data-field="pan"]) *,
+tr:has([data-field="expiration"]) *,
+tr:has([data-field="code"]) *,
+tr:has([data-field="name"]) * {
+  color: #ffffff !important;
 }
 
 /* Resetear cualquier padding o margin en elementos padre de data-field */
