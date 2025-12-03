@@ -58,6 +58,19 @@
     contactless.style.cssText = 'width: 28px; height: 28px; flex-shrink: 0;';
     const contactlessSVG = '<svg width="28" height="28" viewBox="0 0 9589800 12153500" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7348700 12124700c-195700-57000-393400-288800-434200-510200-27600-144500 5700-245200 211900-644300 836200-1617300 1199200-3104400 1199200-4909800 0-1745600-321200-3102505-1120400-4730200-171000-349700-311600-673700-311600-720300 0-173000 144400-424800 302100-522600 214800-135000 574900-110300 747900 52300 66500 61700 238500 344900 382900 628100 571100 1122200 963500 2353700 1156400 3635500 119800 792500 143500 2295800 47500 3021700-175800 1339900-529200 2534300-1095600 3705900-342000 707900-556800 998700-736400 998700-36100 0-95000 8600-130200 20000-36100 10400-134900 0-219500-24700zm-2326100-1217200c-299300-86500-515000-454200-428600-728800 20900-66600 161600-373500 312600-682300 640500-1304700 906600-2704300 776400-4077400-107400-1128900-309800-1841600-819100-2883000-342100-698400-358200-806700-159600-1088000 189000-268000 661300-310700 909300-83600 172000 157700 706000 1273300 912200 1905200 682300 2090500 577800 4335900-296400 6389300-448500 1052800-763100 1377800-1206800 1248600zm-2398400-1233400c-185300-83600-344000-279400-387700-476100-26600-120600 19000-252700 238500-697400 805800-1631600 814400-3203200 26600-4796800-345800-699300-353400-839000-60800-1114600 144500-136800 205300-160600 408600-160600 340200 0 516000 171100 820100 795400 467500 959700 659400 1793100 657500 2860200-1900 1097500-180500 1851000-680400 2863000-286000 580600-427600 733600-713600 772500-87400 12400-226100-8500-308800-45600zm-2238700-1149800c-146400-60800-313600-260300-363000-433300-55100-193800-10500-346800 210000-708800 282200-464700 348700-714600 348700-1321800 0-608100-66500-857100-348700-1322700-96000-157700-192000-345900-213800-419100-91200-306900 163400-682200 506500-746800 290700-54200 491200 75000 758200 493100 773500 1207800 773500 2821200-900 4019500-272700 422800-577700 572000-897000 439900z" fill="#AEFF9A"/></svg>';
     contactless.innerHTML = contactlessSVG;
+    
+    // Asegurar que el SVG tenga el color verde después de insertarlo
+    setTimeout(function() {
+      const svgPaths = contactless.querySelectorAll('svg path');
+      svgPaths.forEach(function(path) {
+        path.setAttribute('fill', '#AEFF9A');
+        path.style.fill = '#AEFF9A';
+      });
+      const svg = contactless.querySelector('svg');
+      if (svg) {
+        svg.style.fill = '#AEFF9A';
+      }
+    }, 10);
 
     // Agregar chip y contactless al contenedor
     chipContainer.appendChild(chip);
@@ -103,36 +116,125 @@
       const nameField = row.querySelector('[data-field="name"]');
 
       if (panField) {
-        // PAN va en la parte inferior
+        // PAN va en la parte inferior, alineado a la izquierda con el chip
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', '20px', 'important');
         row.style.setProperty('left', '28px', 'important');
         row.style.setProperty('right', '80px', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('text-align', 'left', 'important');
+        row.style.setProperty('padding-left', '0', 'important');
+        row.style.setProperty('margin-left', '0', 'important');
+        
+        // Ajustar las celdas dentro de la fila
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.setProperty('padding-left', '0', 'important');
+          cell.style.setProperty('padding-right', '0', 'important');
+          cell.style.setProperty('text-align', 'left', 'important');
+          cell.style.setProperty('margin-left', '0', 'important');
+          cell.style.setProperty('width', 'auto', 'important');
+        });
+        
+        // Ajustar el campo PAN directamente
+        panField.style.setProperty('text-align', 'left', 'important');
+        panField.style.setProperty('padding-left', '0', 'important');
+        panField.style.setProperty('margin-left', '0', 'important');
+        panField.style.setProperty('display', 'inline-block', 'important');
+        panField.style.setProperty('white-space', 'nowrap', 'important');
       } else if (nameField) {
-        // El nombre va justo arriba del PAN
+        // El nombre va justo arriba del PAN, alineado a la izquierda
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', '65px', 'important');
         row.style.setProperty('left', '28px', 'important');
-        row.style.setProperty('right', '28px', 'important');
+        row.style.setProperty('right', 'auto', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('text-align', 'left', 'important');
+        row.style.setProperty('padding-left', '0', 'important');
+        row.style.setProperty('margin-left', '0', 'important');
+        
+        // Ajustar las celdas dentro de la fila
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.setProperty('padding-left', '0', 'important');
+          cell.style.setProperty('padding-right', '0', 'important');
+          cell.style.setProperty('text-align', 'left', 'important');
+          cell.style.setProperty('margin-left', '0', 'important');
+        });
+        
+        // Ajustar el campo name directamente
+        nameField.style.setProperty('text-align', 'left', 'important');
+        nameField.style.setProperty('padding-left', '0', 'important');
+        nameField.style.setProperty('margin-left', '0', 'important');
       } else if (expirationField || codeField) {
-        // Expiration y CVV van arriba del nombre
+        // Expiration y CVV van arriba del nombre, alineados a la izquierda
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', '45px', 'important');
         row.style.setProperty('left', '28px', 'important');
-        row.style.setProperty('right', '28px', 'important');
+        row.style.setProperty('right', 'auto', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('text-align', 'left', 'important');
+        row.style.setProperty('padding-left', '0', 'important');
+        row.style.setProperty('margin-left', '0', 'important');
+        
+        // Ajustar las celdas dentro de la fila
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.setProperty('padding-left', '0', 'important');
+          cell.style.setProperty('padding-right', '0', 'important');
+          cell.style.setProperty('text-align', 'left', 'important');
+          cell.style.setProperty('margin-left', '0', 'important');
+        });
+        
+        // Ajustar los campos expiration y code directamente
+        if (expirationField) {
+          expirationField.style.setProperty('text-align', 'left', 'important');
+          expirationField.style.setProperty('padding-left', '0', 'important');
+          expirationField.style.setProperty('margin-left', '0', 'important');
+        }
+        if (codeField) {
+          codeField.style.setProperty('text-align', 'left', 'important');
+          codeField.style.setProperty('padding-left', '0', 'important');
+          codeField.style.setProperty('margin-left', '0', 'important');
+        }
       }
     });
 
-    // Asegurar que todos los elementos con data-field sean visibles
+    // Asegurar que todos los elementos con data-field sean visibles y estén alineados
     const allFields = document.querySelectorAll('[data-field]');
     allFields.forEach(function(field) {
       field.style.setProperty('visibility', 'visible', 'important');
       field.style.setProperty('opacity', '1', 'important');
       field.style.setProperty('display', 'block', 'important');
       field.style.setProperty('color', '#ffffff', 'important');
+      field.style.setProperty('text-align', 'left', 'important');
+      field.style.setProperty('padding-left', '0', 'important');
+      field.style.setProperty('margin-left', '0', 'important');
+      field.style.setProperty('padding-right', '0', 'important');
+      field.style.setProperty('margin-right', '0', 'important');
+      
+      // Resetear cualquier padding o margin en el elemento padre (celda)
+      const parentCell = field.closest('td, th');
+      if (parentCell) {
+        parentCell.style.setProperty('padding-left', '0', 'important');
+        parentCell.style.setProperty('padding-right', '0', 'important');
+        parentCell.style.setProperty('margin-left', '0', 'important');
+        parentCell.style.setProperty('margin-right', '0', 'important');
+        parentCell.style.setProperty('text-align', 'left', 'important');
+      }
+    });
+    
+    // Resetear padding y margin en todas las celdas que contengan data-field
+    const allCells = document.querySelectorAll('td, th');
+    allCells.forEach(function(cell) {
+      const hasDataField = cell.querySelector('[data-field]');
+      if (hasDataField) {
+        cell.style.setProperty('padding-left', '0', 'important');
+        cell.style.setProperty('padding-right', '0', 'important');
+        cell.style.setProperty('margin-left', '0', 'important');
+        cell.style.setProperty('margin-right', '0', 'important');
+        cell.style.setProperty('text-align', 'left', 'important');
+      }
     });
   }
 
