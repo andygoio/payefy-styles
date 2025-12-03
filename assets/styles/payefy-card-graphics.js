@@ -59,18 +59,42 @@
     const contactlessSVG = '<svg width="28" height="28" viewBox="0 0 9589800 12153500" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7348700 12124700c-195700-57000-393400-288800-434200-510200-27600-144500 5700-245200 211900-644300 836200-1617300 1199200-3104400 1199200-4909800 0-1745600-321200-3102505-1120400-4730200-171000-349700-311600-673700-311600-720300 0-173000 144400-424800 302100-522600 214800-135000 574900-110300 747900 52300 66500 61700 238500 344900 382900 628100 571100 1122200 963500 2353700 1156400 3635500 119800 792500 143500 2295800 47500 3021700-175800 1339900-529200 2534300-1095600 3705900-342000 707900-556800 998700-736400 998700-36100 0-95000 8600-130200 20000-36100 10400-134900 0-219500-24700zm-2326100-1217200c-299300-86500-515000-454200-428600-728800 20900-66600 161600-373500 312600-682300 640500-1304700 906600-2704300 776400-4077400-107400-1128900-309800-1841600-819100-2883000-342100-698400-358200-806700-159600-1088000 189000-268000 661300-310700 909300-83600 172000 157700 706000 1273300 912200 1905200 682300 2090500 577800 4335900-296400 6389300-448500 1052800-763100 1377800-1206800 1248600zm-2398400-1233400c-185300-83600-344000-279400-387700-476100-26600-120600 19000-252700 238500-697400 805800-1631600 814400-3203200 26600-4796800-345800-699300-353400-839000-60800-1114600 144500-136800 205300-160600 408600-160600 340200 0 516000 171100 820100 795400 467500 959700 659400 1793100 657500 2860200-1900 1097500-180500 1851000-680400 2863000-286000 580600-427600 733600-713600 772500-87400 12400-226100-8500-308800-45600zm-2238700-1149800c-146400-60800-313600-260300-363000-433300-55100-193800-10500-346800 210000-708800 282200-464700 348700-714600 348700-1321800 0-608100-66500-857100-348700-1322700-96000-157700-192000-345900-213800-419100-91200-306900 163400-682200 506500-746800 290700-54200 491200 75000 758200 493100 773500 1207800 773500 2821200-900 4019500-272700 422800-577700 572000-897000 439900z" fill="#AEFF9A"/></svg>';
     contactless.innerHTML = contactlessSVG;
     
-    // Asegurar que el SVG tenga el color verde después de insertarlo
+    // Asegurar que el SVG tenga el color verde después de insertarlo y sea visible
+    setTimeout(function() {
+      const svgPaths = contactless.querySelectorAll('svg path');
+      svgPaths.forEach(function(path) {
+        path.setAttribute('fill', '#AEFF9A');
+        path.style.fill = '#AEFF9A';
+        path.style.display = 'block';
+        path.style.visibility = 'visible';
+        path.style.opacity = '1';
+      });
+      const svg = contactless.querySelector('svg');
+      if (svg) {
+        svg.style.fill = '#AEFF9A';
+        svg.style.display = 'block';
+        svg.style.visibility = 'visible';
+        svg.style.opacity = '1';
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+      }
+      // Forzar visibilidad del contenedor
+      contactless.style.display = 'block';
+      contactless.style.visibility = 'visible';
+      contactless.style.opacity = '1';
+    }, 10);
+    
+    // Reaplicar después de un delay más largo para asegurar
     setTimeout(function() {
       const svgPaths = contactless.querySelectorAll('svg path');
       svgPaths.forEach(function(path) {
         path.setAttribute('fill', '#AEFF9A');
         path.style.fill = '#AEFF9A';
       });
-      const svg = contactless.querySelector('svg');
-      if (svg) {
-        svg.style.fill = '#AEFF9A';
-      }
-    }, 10);
+      contactless.style.display = 'block';
+      contactless.style.visibility = 'visible';
+      contactless.style.opacity = '1';
+    }, 100);
 
     // Agregar chip y contactless al contenedor
     chipContainer.appendChild(chip);
@@ -116,9 +140,9 @@
       const nameField = row.querySelector('[data-field="name"]');
 
       if (panField) {
-        // PAN va en la parte inferior, alineado a la izquierda con el chip
+        // PAN va en la parte inferior, alineado a la izquierda con el chip, más cerca del chip
         row.style.setProperty('position', 'absolute', 'important');
-        row.style.setProperty('bottom', '20px', 'important');
+        row.style.setProperty('bottom', '50px', 'important');
         row.style.setProperty('left', '28px', 'important');
         row.style.setProperty('right', '80px', 'important');
         row.style.setProperty('width', 'auto', 'important');
@@ -142,10 +166,11 @@
         panField.style.setProperty('margin-left', '0', 'important');
         panField.style.setProperty('display', 'inline-block', 'important');
         panField.style.setProperty('white-space', 'nowrap', 'important');
+        panField.style.setProperty('color', '#ffffff', 'important');
       } else if (nameField) {
         // El nombre va justo arriba del PAN, alineado a la izquierda
         row.style.setProperty('position', 'absolute', 'important');
-        row.style.setProperty('bottom', '65px', 'important');
+        row.style.setProperty('bottom', '95px', 'important');
         row.style.setProperty('left', '28px', 'important');
         row.style.setProperty('right', 'auto', 'important');
         row.style.setProperty('width', 'auto', 'important');
@@ -166,10 +191,11 @@
         nameField.style.setProperty('text-align', 'left', 'important');
         nameField.style.setProperty('padding-left', '0', 'important');
         nameField.style.setProperty('margin-left', '0', 'important');
+        nameField.style.setProperty('color', '#ffffff', 'important');
       } else if (expirationField || codeField) {
         // Expiration y CVV van arriba del nombre, alineados a la izquierda
         row.style.setProperty('position', 'absolute', 'important');
-        row.style.setProperty('bottom', '45px', 'important');
+        row.style.setProperty('bottom', '75px', 'important');
         row.style.setProperty('left', '28px', 'important');
         row.style.setProperty('right', 'auto', 'important');
         row.style.setProperty('width', 'auto', 'important');
@@ -191,11 +217,13 @@
           expirationField.style.setProperty('text-align', 'left', 'important');
           expirationField.style.setProperty('padding-left', '0', 'important');
           expirationField.style.setProperty('margin-left', '0', 'important');
+          expirationField.style.setProperty('color', '#ffffff', 'important');
         }
         if (codeField) {
           codeField.style.setProperty('text-align', 'left', 'important');
           codeField.style.setProperty('padding-left', '0', 'important');
           codeField.style.setProperty('margin-left', '0', 'important');
+          codeField.style.setProperty('color', '#ffffff', 'important');
         }
       }
     });
@@ -212,6 +240,14 @@
       field.style.setProperty('margin-left', '0', 'important');
       field.style.setProperty('padding-right', '0', 'important');
       field.style.setProperty('margin-right', '0', 'important');
+      
+      // Forzar color blanco también en elementos hijos
+      const children = field.querySelectorAll('*');
+      children.forEach(function(child) {
+        if (child instanceof HTMLElement) {
+          child.style.setProperty('color', '#ffffff', 'important');
+        }
+      });
       
       // Resetear cualquier padding o margin en el elemento padre (celda)
       const parentCell = field.closest('td, th');
