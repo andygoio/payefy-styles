@@ -17,12 +17,6 @@ body > div:first-child,
   box-sizing: border-box !important;
 }
 
-/* Asegurar que el contenedor tenga el padding correcto */
-table {
-  box-sizing: border-box !important;
-  padding: 20px !important;
-}
-
 /* Asegurar que el body y html sean transparentes */
 html,
 body {
@@ -42,6 +36,8 @@ table {
   background-color: #393e3d !important;
   border-radius: 15px !important;
   position: relative !important;
+  box-sizing: border-box !important;
+  padding: 20px !important;
 }
 
 tbody {
@@ -64,15 +60,7 @@ th {
   text-align: left !important;
 }
 
-/* Asegurar que las celdas no tengan padding izquierdo por defecto */
-td:has([data-field]),
-th:has([data-field]) {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left !important;
-}
-
-/* Logo Payefy - posición correcta */
+/* Logo Payefy - posición correcta: top: 16px, right: 16px */
 #payefy-logo,
 #payefy-card-graphics > div:first-child {
   position: absolute !important;
@@ -84,7 +72,7 @@ th:has([data-field]) {
   pointer-events: none !important;
 }
 
-/* Contenedor de chip y contactless */
+/* Contenedor de chip y contactless - posición: top: 55px, left: 28px, gap: 12px */
 #chip-contactless-container,
 #payefy-card-graphics > div:nth-child(2) {
   position: absolute !important;
@@ -100,24 +88,15 @@ th:has([data-field]) {
   opacity: 1 !important;
 }
 
-/* Asegurar que el contenedor tenga ambos hijos visibles */
-#chip-contactless-container > div:nth-child(2),
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 28px !important;
-  height: 28px !important;
-  flex-shrink: 0 !important;
-  position: relative !important;
-}
-
 /* Chip EMV */
 #chip-contactless-container > div:first-child,
 #payefy-card-graphics > div:nth-child(2) > div:first-child {
   width: 36px !important;
   height: 24px !important;
   flex-shrink: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Símbolo contactless - asegurar que sea verde y visible */
@@ -130,6 +109,7 @@ th:has([data-field]) {
   visibility: visible !important;
   opacity: 1 !important;
   z-index: 11 !important;
+  position: relative !important;
 }
 
 #contactless-icon svg,
@@ -168,7 +148,7 @@ th:has([data-field]) {
   height: 28px !important;
 }
 
-/* Logo Visa - posición correcta */
+/* Logo Visa - posición correcta: bottom: 20px, right: 20px */
 #payefy-visa-logo,
 #payefy-card-graphics > div:last-child {
   position: absolute !important;
@@ -180,11 +160,11 @@ th:has([data-field]) {
   pointer-events: none !important;
 }
 
-/* Número de tarjeta (PAN) - posición correcta, alineado a la izquierda con el chip */
+/* Número de tarjeta (PAN) - posición: bottom, alineado a la izquierda con el chip (left: 28px) */
 [data-field="pan"],
 tr:has([data-field="pan"]) {
   position: absolute !important;
-  bottom: 50px !important;
+  bottom: 20px !important;
   left: 28px !important;
   right: 80px !important;
   color: #ffffff !important;
@@ -205,6 +185,7 @@ tr:has([data-field="pan"]) {
   text-align: left !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
+  color: #ffffff !important;
 }
 
 /* Celdas que contienen PAN - asegurar alineación a la izquierda */
@@ -214,9 +195,10 @@ tr:has([data-field="pan"]) th {
   padding-right: 0 !important;
   text-align: left !important;
   margin-left: 0 !important;
+  color: #ffffff !important;
 }
 
-/* Expiration y CVV - posición correcta, alineado a la izquierda con el chip */
+/* Expiration y CVV - posición: arriba del PAN, alineado a la izquierda */
 [data-field="expiration"],
 [data-field="code"] {
   color: #ffffff !important;
@@ -230,7 +212,7 @@ tr:has([data-field="pan"]) th {
 tr:has([data-field="expiration"]),
 tr:has([data-field="code"]) {
   position: absolute !important;
-  bottom: 75px !important;
+  bottom: 45px !important;
   left: 28px !important;
   right: auto !important;
   z-index: 5 !important;
@@ -248,9 +230,10 @@ tr:has([data-field="code"]) th {
   padding-right: 0 !important;
   text-align: left !important;
   margin-left: 0 !important;
+  color: #ffffff !important;
 }
 
-/* Nombre del titular - posición correcta, alineado a la izquierda con el chip */
+/* Nombre del titular - posición: arriba de expiration/CVV, alineado a la izquierda */
 [data-field="name"] {
   color: #ffffff !important;
   font-size: 14px !important;
@@ -262,7 +245,7 @@ tr:has([data-field="code"]) th {
 
 tr:has([data-field="name"]) {
   position: absolute !important;
-  bottom: 95px !important;
+  bottom: 65px !important;
   left: 28px !important;
   right: auto !important;
   z-index: 5 !important;
@@ -278,6 +261,7 @@ tr:has([data-field="name"]) th {
   padding-right: 0 !important;
   text-align: left !important;
   margin-left: 0 !important;
+  color: #ffffff !important;
 }
 
 /* Contenedor de gráficos - asegurar que esté por encima */
@@ -317,43 +301,6 @@ tr:has([data-field="name"]) * {
   color: #ffffff !important;
 }
 
-/* Resetear cualquier padding o margin en elementos padre de data-field */
-td:has([data-field]),
-th:has([data-field]),
-tr:has([data-field]) {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  text-align: left !important;
-}
-
-/* Asegurar que el contenido de las celdas esté alineado a la izquierda */
-td[data-field],
-th[data-field],
-td:has([data-field]),
-th:has([data-field]) {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Eliminar cualquier sombra o efecto no deseado */
-* {
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-
-/* Asegurar que no haya bordes */
-table,
-tbody,
-tr,
-td,
-th {
-  border: none !important;
-  outline: none !important;
-}
-
 /* Resetear todos los estilos de padding y margin que puedan interferir */
 tr td,
 tr th {
@@ -377,5 +324,21 @@ th [data-field] {
   margin-left: 0 !important;
   text-align: left !important;
   display: inline-block !important;
+  color: #ffffff !important;
 }
 
+/* Eliminar cualquier sombra o efecto no deseado */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Asegurar que no haya bordes */
+table,
+tbody,
+tr,
+td,
+th {
+  border: none !important;
+  outline: none !important;
+}
