@@ -1,344 +1,239 @@
-/* Payefy Card Modal Styles */
-/* Asegurar que la tarjeta tenga el mismo aspecto que en la vista principal */
+/* Payefy Card Styles for CDN */
+/* Estos estilos se aplican al modal de "View Details" para tarjeta virtual */
 
-/* Contenedor principal de la tarjeta */
-table,
-body > div:first-child,
-.card-container {
-  aspect-ratio: 85.6 / 53.98 !important;
-  padding: 20px !important;
+/* Estilos críticos - aplicar primero */
+html, body {
+  background-color: transparent !important;
+}
+
+*:not(html):not(body):not(head):not(script):not(style):not(link):not(#payefy-card-graphics):not(#payefy-card-graphics *) {
+  background-color: #393e3d !important;
+  color: #ffffff !important;
+}
+
+table, tbody, tr, td, th {
+  background-color: #393e3d !important;
+  color: #ffffff !important;
+}
+
+/* Estilos de tabla */
+table {
   background-color: #393e3d !important;
   border-radius: 15px !important;
-  position: relative !important;
   overflow: hidden !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 200px !important;
-  box-sizing: border-box !important;
-}
-
-/* Asegurar que el body y html sean transparentes */
-html,
-body {
-  background-color: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* Estilos para la tabla que contiene los datos de la tarjeta */
-table {
-  width: 100% !important;
-  height: 100% !important;
+  position: relative !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  background-color: #393e3d !important;
-  border-radius: 15px !important;
-  position: relative !important;
-  box-sizing: border-box !important;
-  padding: 20px !important;
+  clip-path: inset(0 round 15px) !important;
+  -webkit-clip-path: inset(0 round 15px) !important;
+  height: 100% !important;
+  display: table !important;
 }
 
 tbody {
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  clip-path: inset(0 round 15px) !important;
+  -webkit-clip-path: inset(0 round 15px) !important;
   display: table-row-group !important;
-  background-color: #393e3d !important;
+  height: 100% !important;
 }
 
 tr {
-  display: table-row !important;
-  background-color: transparent !important;
+  background-color: #393e3d !important;
+  color: #ffffff !important;
+  text-align: left !important;
 }
 
-td,
-th {
+td, th {
+  background-color: #393e3d !important;
+  color: #ffffff !important;
+  text-align: left !important;
   padding: 2px 0 !important;
-  background-color: transparent !important;
-  color: #ffffff !important;
-  border: none !important;
   vertical-align: top !important;
-  text-align: left !important;
-}
-
-/* Logo Payefy - posición correcta: top: 16px, right: 16px */
-#payefy-logo,
-#payefy-card-graphics > div:first-child {
-  position: absolute !important;
-  top: 16px !important;
-  right: 16px !important;
-  width: 140px !important;
-  height: 35px !important;
-  z-index: 10 !important;
-  pointer-events: none !important;
-}
-
-/* Contenedor de chip y contactless - posición: top: 55px, left: 28px, gap: 12px */
-#chip-contactless-container,
-#payefy-card-graphics > div:nth-child(2) {
-  position: absolute !important;
-  top: 55px !important;
-  left: 28px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 12px !important;
-  z-index: 10 !important;
-  pointer-events: none !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Chip EMV */
-#chip-contactless-container > div:first-child,
-#payefy-card-graphics > div:nth-child(2) > div:first-child {
-  width: 36px !important;
-  height: 24px !important;
-  flex-shrink: 0 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Símbolo contactless - asegurar que sea verde y visible */
-#contactless-icon,
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) {
-  width: 28px !important;
-  height: 28px !important;
-  flex-shrink: 0 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  z-index: 11 !important;
-  position: relative !important;
-}
-
-#contactless-icon svg,
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg {
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-#contactless-icon svg path,
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg path {
-  fill: #AEFF9A !important;
-  stroke: none !important;
-}
-
-/* Asegurar que el SVG del contactless sea verde */
-#contactless-icon svg,
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg {
-  fill: #AEFF9A !important;
-}
-
-#contactless-icon svg *,
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) svg * {
-  fill: #AEFF9A !important;
-}
-
-/* Forzar visibilidad del contactless */
-#chip-contactless-container > div:nth-child(2),
-#payefy-card-graphics > div:nth-child(2) > div:nth-child(2) {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 28px !important;
-  height: 28px !important;
-}
-
-/* Logo Visa - posición correcta: bottom: 20px, right: 20px */
-#payefy-visa-logo,
-#payefy-card-graphics > div:last-child {
-  position: absolute !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  width: 56px !important;
-  height: 20px !important;
-  z-index: 10 !important;
-  pointer-events: none !important;
-}
-
-/* Número de tarjeta (PAN) - posición: bottom, alineado a la izquierda con el chip (left: 28px) */
-[data-field="pan"],
-tr:has([data-field="pan"]) {
-  position: absolute !important;
-  bottom: 20px !important;
-  left: 28px !important;
-  right: 80px !important;
-  color: #ffffff !important;
-  font-size: 18px !important;
-  letter-spacing: 3px !important;
-  font-weight: 600 !important;
-  z-index: 5 !important;
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  width: auto !important;
-}
-
-[data-field="pan"] {
-  display: inline-block !important;
-  white-space: nowrap !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  color: #ffffff !important;
-}
-
-/* Celdas que contienen PAN - asegurar alineación a la izquierda */
-tr:has([data-field="pan"]) td,
-tr:has([data-field="pan"]) th {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left !important;
-  margin-left: 0 !important;
-  color: #ffffff !important;
-}
-
-/* Expiration y CVV - posición: arriba del PAN, alineado a la izquierda */
-[data-field="expiration"],
-[data-field="code"] {
-  color: #ffffff !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-tr:has([data-field="expiration"]),
-tr:has([data-field="code"]) {
-  position: absolute !important;
-  bottom: 45px !important;
-  left: 28px !important;
-  right: auto !important;
-  z-index: 5 !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Celdas que contienen expiration o code */
-tr:has([data-field="expiration"]) td,
-tr:has([data-field="expiration"]) th,
-tr:has([data-field="code"]) td,
-tr:has([data-field="code"]) th {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left !important;
-  margin-left: 0 !important;
-  color: #ffffff !important;
-}
-
-/* Nombre del titular - posición: arriba de expiration/CVV, alineado a la izquierda */
-[data-field="name"] {
-  color: #ffffff !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-tr:has([data-field="name"]) {
-  position: absolute !important;
-  bottom: 65px !important;
-  left: 28px !important;
-  right: auto !important;
-  z-index: 5 !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Celdas que contienen name */
-tr:has([data-field="name"]) td,
-tr:has([data-field="name"]) th {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left !important;
-  margin-left: 0 !important;
-  color: #ffffff !important;
-}
-
-/* Contenedor de gráficos - asegurar que esté por encima */
-#payefy-card-graphics {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  pointer-events: none !important;
-  z-index: 10 !important;
-  overflow: visible !important;
-}
-
-/* Asegurar que todos los elementos de texto sean visibles y blancos */
-[data-field] {
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: block !important;
-  color: #ffffff !important;
-  text-align: left !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  padding-right: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Forzar color blanco en todos los textos de la tarjeta */
-[data-field="pan"],
-[data-field="expiration"],
-[data-field="code"],
-[data-field="name"],
-tr:has([data-field="pan"]) *,
-tr:has([data-field="expiration"]) *,
-tr:has([data-field="code"]) *,
-tr:has([data-field="name"]) * {
-  color: #ffffff !important;
-}
-
-/* Resetear todos los estilos de padding y margin que puedan interferir */
-tr td,
-tr th {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  text-align: left !important;
-}
-
-/* Asegurar que los elementos dentro de las celdas también estén alineados */
-td *,
-th * {
-  text-align: left !important;
-}
-
-/* Específicamente para elementos con data-field dentro de celdas */
-td [data-field],
-th [data-field] {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  text-align: left !important;
-  display: inline-block !important;
-  color: #ffffff !important;
-}
-
-/* Eliminar cualquier sombra o efecto no deseado */
-* {
   box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
   text-shadow: none !important;
 }
 
-/* Asegurar que no haya bordes */
-table,
-tbody,
-tr,
-td,
-th {
-  border: none !important;
-  outline: none !important;
+/* Border radius para primera y última fila */
+tbody tr:first-child td:first-child,
+tbody tr:first-child th:first-child {
+  border-top-left-radius: 15px !important;
 }
+
+tbody tr:first-child td:last-child,
+tbody tr:first-child th:last-child {
+  border-top-right-radius: 15px !important;
+}
+
+tbody tr:last-child td:first-child,
+tbody tr:last-child th:first-child {
+  border-bottom-left-radius: 15px !important;
+}
+
+tbody tr:last-child td:last-child,
+tbody tr:last-child th:last-child {
+  border-bottom-right-radius: 15px !important;
+}
+
+/* Si hay una sola fila con una sola celda */
+tbody tr:only-child td:only-child,
+tbody tr:only-child th:only-child {
+  border-radius: 15px !important;
+}
+
+/* Posicionamiento de campos de tarjeta */
+tr[data-field="pan"],
+tr:has([data-field="pan"]) {
+  position: absolute !important;
+  bottom: 25px !important;
+  left: 28px !important;
+  right: 80px !important;
+  width: auto !important;
+}
+
+tr[data-field="name"],
+tr:has([data-field="name"]) {
+  position: absolute !important;
+  bottom: 45px !important;
+  left: 28px !important;
+  right: 28px !important;
+  width: auto !important;
+}
+
+tr[data-field="expiration"],
+tr:has([data-field="expiration"]),
+tr[data-field="code"],
+tr:has([data-field="code"]) {
+  position: absolute !important;
+  bottom: 65px !important;
+  left: 28px !important;
+  right: 28px !important;
+  width: auto !important;
+}
+
+/* Padding para campos de tarjeta */
+[data-field="pan"],
+[data-field="name"],
+[data-field="expiration"],
+[data-field="code"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+  display: inline !important;
+  position: relative !important;
+  left: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+td:has([data-field="pan"]),
+td:has([data-field="name"]),
+td:has([data-field="expiration"]),
+td:has([data-field="code"]),
+th:has([data-field="pan"]),
+th:has([data-field="name"]),
+th:has([data-field="expiration"]),
+th:has([data-field="code"]) {
+  padding-left: 28px !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Espaciado entre campos */
+tr:has([data-field="expiration"]),
+tr:has([data-field="code"]) {
+  margin-bottom: 32px !important;
+  padding-bottom: 32px !important;
+  display: block !important;
+}
+
+tr:has([data-field="name"]) {
+  margin-top: 32px !important;
+  padding-top: 32px !important;
+  display: block !important;
+}
+
+/* Ajustes para dispositivos físicos */
+@media (min-width: 401px) and (min-resolution: 2.5dppx) {
+  tr[data-field="pan"],
+  tr:has([data-field="pan"]) {
+    bottom: 35px !important;
+  }
+
+  tr[data-field="name"],
+  tr:has([data-field="name"]) {
+    bottom: 55px !important;
+  }
+
+  tr[data-field="expiration"],
+  tr:has([data-field="expiration"]),
+  tr[data-field="code"],
+  tr:has([data-field="code"]) {
+    bottom: 75px !important;
+  }
+}
+
+/* Contenedor de gráficos */
+#payefy-card-graphics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Logo Payefy */
+#payefy-card-graphics > div:first-child {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 140px;
+  height: 35px;
+}
+
+/* Chip y contactless */
+#payefy-card-graphics > div:nth-child(2) {
+  position: absolute;
+  top: 40px;
+  left: 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo Visa */
+#payefy-visa-logo {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  width: 56px;
+  height: 20px;
+  z-index: 100;
+}
+
+@media (min-width: 401px) and (min-resolution: 2.5dppx) {
+  #payefy-visa-logo {
+    bottom: 35px !important;
+  }
+}
+
