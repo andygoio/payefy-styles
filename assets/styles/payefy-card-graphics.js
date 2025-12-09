@@ -83,30 +83,87 @@
         const bottomPosition = isPhysicalDevice ? '35px' : '25px';
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', bottomPosition, 'important');
-        row.style.setProperty('left', '28px', 'important');
+        row.style.setProperty('left', '0', 'important');
         row.style.setProperty('right', '80px', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('padding', '0', 'important');
+        row.style.setProperty('margin', '0', 'important');
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.cssText = 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;';
+          cell.setAttribute('style', 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;');
+          const allChildren = cell.querySelectorAll('*');
+          allChildren.forEach(function(child) {
+            if (child instanceof HTMLElement) {
+              child.style.setProperty('padding-left', '0', 'important');
+              child.style.setProperty('margin-left', '0', 'important');
+              child.style.setProperty('text-indent', '0', 'important');
+              child.style.setProperty('color', '#ffffff', 'important');
+              child.style.setProperty('position', 'static', 'important');
+              child.style.setProperty('left', 'auto', 'important');
+              child.style.setProperty('transform', 'none', 'important');
+            }
+          });
+        });
       } else if (nameField) {
         const bottomPosition = isPhysicalDevice ? '55px' : '45px';
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', bottomPosition, 'important');
-        row.style.setProperty('left', '28px', 'important');
+        row.style.setProperty('left', '0', 'important');
         row.style.setProperty('right', '28px', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('padding', '0', 'important');
+        row.style.setProperty('margin', '0', 'important');
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.cssText = 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;';
+          cell.setAttribute('style', 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;');
+          const allChildren = cell.querySelectorAll('*');
+          allChildren.forEach(function(child) {
+            if (child instanceof HTMLElement) {
+              child.style.setProperty('padding-left', '0', 'important');
+              child.style.setProperty('margin-left', '0', 'important');
+              child.style.setProperty('text-indent', '0', 'important');
+              child.style.setProperty('color', '#ffffff', 'important');
+              child.style.setProperty('position', 'static', 'important');
+              child.style.setProperty('left', 'auto', 'important');
+              child.style.setProperty('transform', 'none', 'important');
+            }
+          });
+        });
       } else if (expirationField || codeField) {
         const bottomPosition = isPhysicalDevice ? '75px' : '65px';
         row.style.setProperty('position', 'absolute', 'important');
         row.style.setProperty('bottom', bottomPosition, 'important');
-        row.style.setProperty('left', '28px', 'important');
+        row.style.setProperty('left', '0', 'important');
         row.style.setProperty('right', '28px', 'important');
         row.style.setProperty('width', 'auto', 'important');
+        row.style.setProperty('padding', '0', 'important');
+        row.style.setProperty('margin', '0', 'important');
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.cssText = 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;';
+          cell.setAttribute('style', 'padding: 0 !important; padding-left: 28px !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin: 0 !important; vertical-align: top !important; text-align: left !important; color: #ffffff !important;');
+          const allChildren = cell.querySelectorAll('*');
+          allChildren.forEach(function(child) {
+            if (child instanceof HTMLElement) {
+              child.style.setProperty('padding-left', '0', 'important');
+              child.style.setProperty('margin-left', '0', 'important');
+              child.style.setProperty('text-indent', '0', 'important');
+              child.style.setProperty('color', '#ffffff', 'important');
+              child.style.setProperty('position', 'static', 'important');
+              child.style.setProperty('left', 'auto', 'important');
+              child.style.setProperty('transform', 'none', 'important');
+            }
+          });
+        });
+      } else {
+        const cells = row.querySelectorAll('td, th');
+        cells.forEach(function(cell) {
+          cell.style.setProperty('padding', '2px 0', 'important');
+          cell.style.setProperty('vertical-align', 'top', 'important');
+        });
       }
-
-      const cells = row.querySelectorAll('td, th');
-      cells.forEach(function(cell) {
-        cell.style.setProperty('padding', '2px 0', 'important');
-        cell.style.setProperty('vertical-align', 'top', 'important');
-      });
     });
 
     const visaLogo = document.getElementById('payefy-visa-logo');
@@ -122,6 +179,26 @@
       field.style.setProperty('visibility', 'visible', 'important');
       field.style.setProperty('opacity', '1', 'important');
       field.style.setProperty('display', 'block', 'important');
+      const fieldType = field.getAttribute('data-field');
+      if (fieldType === 'pan' || fieldType === 'expiration' || fieldType === 'code' || fieldType === 'name') {
+        field.style.setProperty('color', '#ffffff', 'important');
+        field.style.cssText = (field.style.cssText || '') + '; color: #ffffff !important;';
+        field.setAttribute('style', (field.getAttribute('style') || '') + '; color: #ffffff !important;');
+        const allChildren = field.querySelectorAll('*');
+        allChildren.forEach(function(child) {
+          if (child instanceof HTMLElement) {
+            child.style.setProperty('color', '#ffffff', 'important');
+            child.style.cssText = (child.style.cssText || '') + '; color: #ffffff !important;';
+            child.setAttribute('style', (child.getAttribute('style') || '') + '; color: #ffffff !important;');
+          }
+        });
+        const parentCell = field.closest('td, th');
+        if (parentCell) {
+          parentCell.style.setProperty('color', '#ffffff', 'important');
+          parentCell.style.cssText = (parentCell.style.cssText || '') + '; color: #ffffff !important;';
+          parentCell.setAttribute('style', (parentCell.getAttribute('style') || '') + '; color: #ffffff !important;');
+        }
+      }
     });
   }
 
